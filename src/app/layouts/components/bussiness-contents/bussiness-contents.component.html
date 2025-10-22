@@ -1,0 +1,148 @@
+<div class="min-h-screen bg-gray-50" @scaleFadeIn *ngIf="formItemNmLoaded">
+    <!-- Header -->
+    <header class="relative bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400 text-white overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center opacity-30"
+            style="background-image: url('./assets/img/bussiness/bussiness-header.jpg');"></div>
+        <div class="relative z-10 text-center py-20 px-4">
+            <h1 class="text-6xl mb-10 font-extrabold tracking-wide drop-shadow-lg" [innerHTML]="listFormItemNm[1]"></h1>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full h-16 bg-white rounded-t-[50%]"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto py-16">
+        <!-- Section 1 -->
+        <section class="mb-20">
+            <h2 class="text-4xl font-bold text-blue-700 text-center mb-12" [innerHTML]="listFormItemNm[2]"></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Danh sách -->
+                <div class="space-y-8">
+                    <!-- Item 1 -->
+                    <div
+                        class="flex items-start group transition duration-300 hover:scale-105 hover:shadow-lg hover:rounded-lg">
+                        <div
+                            class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-300 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-md group-hover:shadow-xl transition">
+                            1
+                        </div>
+                        <div class="pl-6">
+                            <p class="text-gray-700 text-lg leading-relaxed" [innerHTML]="listFormItemNm[3]">
+
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div
+                        class="flex items-start group transition duration-300 hover:scale-105 hover:shadow-lg hover:rounded-lg">
+                        <div
+                            class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-300 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-md group-hover:shadow-xl transition">
+                            2
+                        </div>
+                        <div class="pl-6">
+                            <p class="text-gray-700 text-lg leading-relaxed" [innerHTML]="listFormItemNm[4]">
+
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div
+                        class="flex items-start group transition duration-300 hover:scale-105 hover:shadow-lg hover:rounded-lg">
+                        <div
+                            class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-300 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-md group-hover:shadow-xl transition">
+                            3
+                        </div>
+                        <div class="pl-6">
+                            <p class="text-gray-700 text-lg leading-relaxed" [innerHTML]="listFormItemNm[5]">
+
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div
+                        class="flex items-start group transition duration-300 hover:scale-105 hover:shadow-lg hover:rounded-lg">
+                        <div
+                            class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-300 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-md group-hover:shadow-xl transition">
+                            4
+                        </div>
+                        <div class="pl-6">
+                            <p class="text-gray-700 text-lg leading-relaxed" [innerHTML]="listFormItemNm[6]">
+
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div
+                        class="flex items-start group transition duration-300 hover:scale-105 hover:shadow-lg hover:rounded-lg">
+                        <div
+                            class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-300 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-md group-hover:shadow-xl transition">
+                            5
+                        </div>
+                        <div class="pl-6">
+                            <p class="text-gray-700 text-lg leading-relaxed" [innerHTML]="listFormItemNm[7]">
+
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div
+                        class="flex items-start group transition duration-300 hover:scale-105 hover:shadow-lg hover:rounded-lg">
+                        <div
+                            class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-300 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-md group-hover:shadow-xl transition">
+                            6
+                        </div>
+                        <div class="pl-6">
+                            <p class="text-gray-700 text-lg leading-relaxed" [innerHTML]="listFormItemNm[8]">
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hình ảnh mô tả -->
+                <div class="relative overflow-hidden rounded-xl shadow-lg">
+                    <img src="https://via.placeholder.com/500" alt="事業内容"
+                        class="w-full object-cover hover:scale-110 transition duration-500">
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="mb-20">
+            <div class="p-8 bg-gradient-to-br from-blue-50 via-blue-100 to-white rounded-xl shadow-lg">
+                <h2 class="text-2xl font-bold text-blue-700" [innerHTML]="listFormItemNm[9]"></h2>
+                <p class="text-gray-700 leading-relaxed mt-4" [innerHTML]="listFormItemNm[10]">
+                </p>
+                <div class="bg-blue-500 text-white mt-6 p-4 rounded-lg text-center shadow-md"
+                    [innerHTML]="listFormItemNm[11]">
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: 写真ギャラリー -->
+        <section *ngIf="formItemNmLoaded">
+            <h2 class="text-4xl font-bold text-center text-blue-700 mb-12" [innerHTML]="listFormItemNm[12]"></h2>
+            <div class="grid grid-cols-1 md:grid-cols-1 gap-6">
+                <c-carousel [dark]="true" [wrap]="false" (itemChange)="onItemChange($event)">
+                    <c-carousel-indicators></c-carousel-indicators>
+                    <c-carousel-inner>
+                        <c-carousel-item *ngFor="let slide of slides; let i = index">
+                            <img alt="{{slide.title}}" class="d-block w-100 topslide-carousel-img bg-img-bigger"
+                                loading="lazy" src="{{slide.src}}" />
+                            <c-carousel-caption class="topslide-carousel-caption opacity-90" *ngIf="slide.showCaption"
+                                @scaleFadeIn>
+                                <p class="text-lg md:text-3xl sm:text-2xl lg:text-4xl font-bold leading-loose">
+                                    {{slide.title}}</p>
+                            </c-carousel-caption>
+                        </c-carousel-item>
+                    </c-carousel-inner>
+                    <c-carousel-control [routerLink] caption="Previous" direction="prev"></c-carousel-control>
+                    <c-carousel-control [routerLink] caption="Next" direction="next"></c-carousel-control>
+                </c-carousel>
+            </div>
+        </section>
+    </main>
+</div>

@@ -1,0 +1,40 @@
+$transition-duration: 500ms;
+$transition-delay: 200ms;
+
+.progress-bar {
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    visibility: hidden;
+    z-index: 99999;
+    transition: opacity $transition-duration theme("transitionTimingFunction.out-swift") $transition-delay,
+        visibility 0ms theme("transitionTimingFunction.out-swift") ($transition-duration + $transition-delay);
+
+    &.visible {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity $transition-duration theme("transitionTimingFunction.out-swift"),
+            visibility 0ms theme("transitionTimingFunction.out-swift") 0ms;
+    }
+}
+.vijp-red {
+  --mdc-linear-progress-active-indicator-color: #C8102E !important;
+  --mdc-linear-progress-track-color: rgba(200, 16, 46, 0.15) !important;
+}
+
+/* nếu muốn màu vàng thương hiệu */
+.vijp-yellow {
+  --mdc-linear-progress-active-indicator-color: #F4A300 !important;
+  --mdc-linear-progress-track-color: rgba(244, 163, 0, 0.15) !important;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+    z-index: 99998;
+}

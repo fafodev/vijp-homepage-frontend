@@ -1,0 +1,84 @@
+<div class="min-h-screen bg-gray-50" @scaleFadeIn *ngIf="formItemNmLoaded">
+    <!-- Header -->
+    <header class="relative bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 text-white overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center opacity-30"
+            style="background-image: url('./assets/img/bussiness/bussiness-header.jpg');"></div>
+        <div class="relative z-10 text-center py-20 px-4">
+            <h1 class="text-6xl mb-10 font-extrabold tracking-wide drop-shadow-lg" [innerHTML]="listFormItemNm[1]"></h1>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full h-16 bg-white rounded-t-[50%]"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto py-16">
+        <!-- Section 1 -->
+        <section class="mb-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="p-8 bg-white rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+                    <h2 class="text-4xl font-bold text-blue-700 mb-4" [innerHTML]="listFormItemNm[2]"></h2>
+                    <p class="text-gray-600 leading-relaxed" [innerHTML]="listFormItemNm[3]">
+
+                    </p>
+                </div>
+                <div class="relative overflow-hidden rounded-xl shadow-lg">
+                    <img src="./assets/img/bussiness/bussiness-content-01.jpg" alt="外国人技能実習制度"
+                        class="w-full object-cover hover:scale-110 transition duration-500">
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="mb-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="relative overflow-hidden rounded-xl shadow-lg">
+                    <img src="./assets/img/bussiness/bussiness-content-02.jpg" alt="外国人技能実習制度の沿革"
+                        class="w-full object-cover hover:scale-110 transition duration-500">
+                </div>
+                <div class="p-8 bg-white rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+                    <h2 class="text-4xl font-bold text-blue-700 mb-4" [innerHTML]="listFormItemNm[4]"></h2>
+                    <p class="text-gray-600 leading-relaxed" [innerHTML]="listFormItemNm[5]">
+
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section>
+            <h2 class="text-4xl font-bold text-center text-blue-700 mb-12" [innerHTML]="listFormItemNm[6]"></h2>
+            <div class="grid grid-cols-3 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+                <!-- Cards -->
+                <div class="bg-white md:min-h-[450px] shadow-xl rounded-lg p-6 hover:scale-105 transition duration-300">
+                    <img src="./assets/img/bussiness/bussiness-content-02.jpg" alt="自動車整備"
+                        class="w-full h-150 rounded-lg mb-4 h-4/5">
+                    <p class="font-semibold text-center text-gray-600" [innerHTML]="listFormItemNm[7]"></p>
+                </div>
+                <div class="bg-white shadow-xl rounded-lg p-6 hover:scale-105 transition duration-300">
+                    <img src="./assets/img/bussiness/bussiness-content-03.jpg" alt="水産加工"
+                        class="w-full rounded-lg mb-4 h-4/5">
+                    <p class="font-semibold text-center text-gray-600" [innerHTML]="listFormItemNm[8]"></p>
+                </div>
+                <div class="bg-white shadow-xl rounded-lg p-6 hover:scale-105 transition duration-300">
+                    <img src="./assets/img/bussiness/bussiness-content-04.jpg" alt="食品加工"
+                        class="w-full rounded-lg mb-4 h-4/5">
+                    <p class="font-semibold text-center text-gray-600" [innerHTML]="listFormItemNm[9]"></p>
+                </div>
+                <div class="bg-white md:min-h-[450px] shadow-xl rounded-lg p-6 hover:scale-105 transition duration-300">
+                    <img src="./assets/img/bussiness/bussiness-content-05.jpg" alt="自動車整備"
+                        class="w-full rounded-lg mb-4 h-4/5">
+                    <p class="font-semibold text-center text-gray-600" [innerHTML]="listFormItemNm[10]"></p>
+                </div>
+                <div class="bg-white shadow-xl rounded-lg p-6 hover:scale-105 transition duration-300">
+                    <img src="./assets/img/bussiness/bussiness-content-06.jpg" alt="技能実習"
+                        class="w-full rounded-lg mb-4 h-4/5">
+                    <p class="font-semibold text-center text-gray-600" [innerHTML]="listFormItemNm[11]"></p>
+                </div>
+                <div class="bg-white shadow-xl rounded-lg p-6 hover:scale-105 transition duration-300">
+                    <img src="./assets/img/bussiness/bussiness-content-07.jpg" alt="実習生"
+                        class="w-full rounded-lg mb-4 h-4/5">
+                    <p class="font-semibold text-center text-gray-600" [innerHTML]="listFormItemNm[12]"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>

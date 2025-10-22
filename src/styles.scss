@@ -1,0 +1,79 @@
+@import "~simplebar/dist/simplebar.css";
+@import "~highlight.js/styles/androidstudio.css";
+// Vex Core
+
+@import "@coreui/coreui/scss/coreui";
+@import "./@vex/styles/core";
+/*
+  You can override any CSS Variable or style here
+  Example:
+
+  :root {
+   --vex-sidenav-background: #333333;
+  }
+
+  All possible variables can be found in @vex/styles/core or by simply inspecting the element you want to change
+  in Chrome/Firefox DevTools
+*/
+
+/**
+  Uncomment the below code and adjust the values to fit your colors, the application will automatically adjust
+ */
+// html {
+// --vex-color-primary: blue;
+// --vex-color-primary-contrast: white;
+
+// --vex-color-accent: yellow;
+// --vex-color-accent-contrast: black;
+
+// --vex-color-warn: yellow;
+// --vex-color-warn-contrast: black;
+// }
+
+.vex-layout-content {
+    background: white;
+}
+#vex-splash-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 99999;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.vex-splash-screen-loader {
+    width: 150px;
+    height: 22px;
+    border-radius: 20px;
+    color: #C8102E;
+    border: 2px solid;
+    position: relative;
+}
+
+.vex-splash-screen-loader::before {
+    content: "";
+    position: absolute;
+    margin: 2px;
+    inset: 0 100% 0 0;
+    border-radius: inherit;
+    background: currentColor;
+    animation: vex-splash-screen-loader-animation 2s forwards;
+}
+
+.vex-toolbar {
+    border-bottom-color: #C8102E
+}
+
+@keyframes vex-splash-screen-loader-animation {
+    100% {
+        inset: 0;
+    }
+}

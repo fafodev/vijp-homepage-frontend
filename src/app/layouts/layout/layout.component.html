@@ -1,0 +1,134 @@
+<vex-base-layout *ngIf="config$ | async as config">
+    <vex-progress-bar></vex-progress-bar>
+
+    <vex-search></vex-search>
+
+    <mat-sidenav-container class="vex-layout-sidenav-container">
+        <mat-sidenav (closedStart)="onSidenavClosed()" [disableClose]="!!(sidenavDisableClose$ | async)"
+            [fixedInViewport]="!!(sidenavFixedInViewport$ | async)" [mode]="(sidenavMode$ | async) ?? 'side'"
+            [opened]="!!(sidenavOpen$ | async)">
+            <vex-sidenav [collapsed]="!!(sidenavCollapsed$ | async)"></vex-sidenav>
+        </mat-sidenav>
+
+        <mat-sidenav (closedStart)="onQuickpanelClosed()" [opened]="!!(quickpanelOpen$ | async)"
+            class="vex-layout-quickpanel" mode="over" position="end">
+            <vex-quickpanel></vex-quickpanel>
+        </mat-sidenav>
+
+        <mat-sidenav-content class="vex-layout-sidenav-content">
+            <vex-toolbar class="vex-toolbar"></vex-toolbar>
+
+            <main class="vex-layout-content">
+                <router-outlet></router-outlet>
+            </main>
+
+            <div class="w-full h-[4px] bg-gradient-to-r from-[#F4A300] via-[#E63E11] to-[#C8102E]"></div>
+            <!-- FOOTER -->
+            <footer class="border-t border-gray-200 footer-container py-10">
+
+                <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+                    <!-- LEFT: LOGO -->
+                    <div class="flex flex-col items-center md:items-start">
+                        <img src="assets/img/logo/logo.png" alt="VIJP Logo"
+                            class="w-52 md:w-60 mb-3 object-contain transition-transform duration-300 hover:scale-105" />
+                        <p class="text-red-700 text-sm md:text-base font-medium">
+                            VIJP Co., Ltd – Member of Tin Phat Vietnam Group
+                        </p>
+                    </div>
+
+                    <!-- RIGHT: CONTACT INFO -->
+                    <div class="text-red-700 text-sm md:text-base space-y-3">
+                        <h3 class="text-red-700 text-lg font-semibold mb-3 flex items-center gap-2">
+                            <mat-icon svgIcon="mat:contact_mail" class="text-[#F4A300]"></mat-icon>
+                            Contact Information / 連絡先
+                        </h3>
+
+                        <!-- JAPAN OFFICE -->
+                        <div class="space-y-1">
+                            <div class="flex items-center gap-2 font-semibold">
+                                <mat-icon svgIcon="flag:japan" class="text-[#F4A300]"></mat-icon>
+                                Japan Office
+                            </div>
+                            <div class="pl-7 space-y-1">
+                                <div class="flex items-center gap-2">
+                                    <mat-icon svgIcon="mat:location_on" class="text-red-700"></mat-icon>
+                                    <span>〒123-4567 東京都新宿区◯◯丁目</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <mat-icon svgIcon="mat:phone" class="text-red-700"></mat-icon>
+                                    <span>+81-80-1234-5678</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <mat-icon svgIcon="mat:mail" class="text-red-700"></mat-icon>
+                                    <span>info&#64;vijp.jp</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- VIETNAM OFFICE -->
+                        <div class="space-y-1 pt-2">
+                            <div class="flex items-center gap-2 font-semibold">
+                                <mat-icon svgIcon="flag:vietnam" class="text-[#F4A300]"></mat-icon>
+                                Vietnam Office
+                            </div>
+                            <div class="pl-7 space-y-1">
+                                <div class="flex items-center gap-2">
+                                    <mat-icon svgIcon="mat:location_on" class="text-red-700"></mat-icon>
+                                    <span>Tòa nhà Tín Phát, Quận 1, TP. Hồ Chí Minh</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <mat-icon svgIcon="mat:phone" class="text-red-700"></mat-icon>
+                                    <span>+84-28-1234-5678</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <mat-icon svgIcon="mat:chat" class="text-red-700"></mat-icon>
+                                    <span>Zalo・LINE対応</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- GOOGLE MAP -->
+                        <div class="mt-4 rounded-xl overflow-hidden shadow-md border border-[#C8102E]/20"
+                            data-aos="fade-up" data-aos-delay="400">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4873123456!2d106.7009814153349!3d10.776887392322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f3f1b6a1f3b%3A0xb1e8fda7ef0db11f!2zVGluIFBoYXQgQnVpbGRpbmcsIFRow6FpIE5ndXnhu4VuLCBRdeG6rW4gMSwgSOG7kyBDaMOtIE1pbmggQ2l0eQ!5e0!3m2!1sen!2s!4v1678361234567!5m2!1sen!2s"
+                                width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+
+                        <!-- LINKS -->
+                        <div class="flex flex-wrap gap-4 pt-4">
+                            <a routerLink="/home" class="hover:underline text-red-700">Home</a>
+                            <a routerLink="/about" class="hover:underline text-red-700">About</a>
+                            <a routerLink="/services" class="hover:underline text-red-700">Services</a>
+                            <a routerLink="/news" class="hover:underline text-red-700">News</a>
+                            <a routerLink="/contact" class="hover:underline text-red-700">Contact</a>
+                        </div>
+
+                        <p class="pt-4 text-xs text-red-700/80">
+                            © 2025 VIJP – All rights reserved. | Designed by VIJP Co., Ltd.
+                        </p>
+                    </div>
+                </div>
+            </footer>
+
+
+
+
+
+
+
+        </mat-sidenav-content>
+
+
+    </mat-sidenav-container>
+
+    <vex-config-panel-toggle (openConfig)="configpanel.open()"></vex-config-panel-toggle>
+
+    <!-- CONFIGPANEL -->
+    <vex-sidebar #configpanel [invisibleBackdrop]="true" [opened]="!!(configPanelOpen$ | async)" position="right">
+        <vex-config-panel></vex-config-panel>
+    </vex-sidebar>
+    <!-- END CONFIGPANEL -->
+</vex-base-layout>

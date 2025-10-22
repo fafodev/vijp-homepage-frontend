@@ -1,0 +1,49 @@
+<div class="min-h-screen" @scaleFadeIn *ngIf="formItemNmLoaded">
+    <!-- Header -->
+    <header class="relative bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400 text-white overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center opacity-30"
+            style="background-image: url('./assets/img/bussiness/bussiness-header.jpg');"></div>
+        <div class="relative z-10 text-center py-20 px-4">
+            <h1 class="text-6xl mb-10 font-extrabold tracking-wide drop-shadow-lg" [innerHTML]="listFormItemNm[1]">
+            </h1>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full h-16 bg-white rounded-t-[50%]"></div>
+    </header>
+    <div class="container mx-auto p-6 rounded-lg shadow-lg mt-8">
+        <!-- Tiêu đề bài viết -->
+        <h1 class="text-4xl font-bold text-blue-700 mb-4 mt-4">{{ post.TITLE }}</h1>
+        <!-- Ngày viết bài -->
+        <p class="text-sm text-blue-500 italic mb-8 flex items-center gap-2">
+            <mat-icon class="!icon-sm" svgIcon="mat:calendar_today"></mat-icon>
+            {{ post.CREATED_AT }}
+        </p>
+
+        <!-- Ảnh bài viết -->
+        <div *ngIf="imageList.length > 0" class="mb-6">
+            <div class="grid grid-cols-3 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+                <!-- Cards -->
+                <div *ngFor="let imgUrl of imageList; let i = index"
+                    class=" p-6 hover:scale-105 transition duration-300">
+                    <img [src]="'./assets/img/post/' + imgUrl" [alt]="post.TITLE"
+                        class="rounded-lg shadow-lg w-full h-auto object-cover">
+                    <p class="font-semibold text-center text-gray-600" [innerHTML]="listFormItemNm[7]"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nội dung bài viết -->
+        <div class="text-gray-700 leading-relaxed">
+            <p>{{ post.CONTENT }}</p>
+        </div>
+
+        <!-- Nút quay lại -->
+        <div class="mt-8 text-right">
+            <button class="rounded-full py-2 px-6 title" color="primary" mat-raised-button (click)="goBack()"
+                type="button">
+                <mat-icon class="ltr:-ml-2 rtl:-mr-2 ltr:mr-2 rtl:ml-2 !icon-lg"
+                    svgIcon="mat:keyboard_arrow_left"></mat-icon>
+                <span [innerHTML]="listFormItemNm[2]"></span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,620 @@
+<!-- ===============================
+     HOME PAGE VIJP
+=================================== -->
+
+<div class="w-full font-sans text-gray-800">
+
+    <!-- HERO SECTION -->
+    <section class="relative w-full h-[70vh] bg-cover bg-center"
+        style="background-image: url('https://images.unsplash.com/photo-1525182008055-f88b95ff7980?w=1600&q=80');">
+        <div class="absolute inset-0 bg-black/40"></div>
+
+        <div class="relative z-10 flex flex-col justify-center items-start h-full max-w-6xl mx-auto px-6 text-white">
+            <h1 class="text-3xl md:text-5xl font-bold max-w-2xl leading-tight drop-shadow-lg" data-aos="fade-up"
+                data-aos-delay="200">
+                Connecting Vietnam and Japan for a Better Future
+            </h1>
+            <p class="mt-2 text-lg tracking-wide" data-aos="fade-up" data-aos-delay="200">
+                ベトナムと日本をつなぎ、より良い未来を築く
+            </p>
+            <button data-aos="fade-up" data-aos-delay="200" mat-flat-button color="warn"
+                class="mt-6 bg-[#C8102E] hover:bg-[#a50d25] px-12 py-6 rounded-md text-white font-semibold shadow-md transition-transform transform hover:scale-105"
+                (click)="scrollToContact()">
+                CONTACT US
+            </button>
+        </div>
+    </section>
+
+    <!-- SERVICE SECTION -->
+    <section class="py-16 bg-white" data-aos="fade-up" data-aos-duration="600">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+
+            <!-- LEFT PANEL -->
+            <div data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000"
+                class="relative bg-gradient-to-br from-[#C8102E] to-[#F4A300] rounded-2xl text-white p-8 flex flex-col justify-between shadow-lg">
+                <div>
+                    <h2 class="text-3xl font-bold mb-4">Our Services</h2>
+                    <p class="text-base leading-relaxed opacity-90">
+                        VIJP is a member of Tin Phat Group, providing comprehensive support for students, real estate,
+                        jobs, and lifestyle services in Japan.
+                    </p>
+                    <p class="mt-3 text-sm opacity-90">
+                        VUPは母会社のベトナム「Tín Phát」の傘下企業であり、日本での留学生支援、不動産、生活サポートを専門としています。
+                    </p>
+                </div>
+                <button mat-flat-button
+                    class="mt-8 bg-white text-[#C8102E] hover:bg-gray-100 font-semibold px-5 py-2 rounded-md self-start transition-transform transform hover:scale-105"
+                    routerLink="/services">
+                    View All Services
+                </button>
+            </div>
+
+            <!-- RIGHT GRID -->
+            <div data-aos="fade-left" data-aos-delay="300" data-aos-duration="1000"
+                class="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
+
+                <!-- CARD TEMPLATE -->
+                <div class="flex bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all group">
+                    <div class="w-2/5 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&q=80"
+                            alt="Student Support"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="w-3/5 p-5 flex flex-col justify-center">
+                        <h3 class="text-lg font-semibold text-[#C8102E] mb-2">Student Support</h3>
+                        <p class="text-sm text-gray-700 leading-relaxed">
+                            <span class="text-[#F4A300] font-medium">留学生支援</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all group">
+                    <div class="w-2/5 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=900&q=80"
+                            alt="Real Estate"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="w-3/5 p-5 flex flex-col justify-center">
+                        <h3 class="text-lg font-semibold text-[#C8102E] mb-2">Real Estate</h3>
+                        <p class="text-sm text-gray-700 leading-relaxed">
+                            <span class="text-[#F4A300] font-medium">不動産サポート</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all group">
+                    <div class="w-2/5 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=900&q=80" alt="Jobs"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="w-3/5 p-5 flex flex-col justify-center">
+                        <h3 class="text-lg font-semibold text-[#C8102E] mb-2">Jobs</h3>
+                        <p class="text-sm text-gray-700 leading-relaxed">
+                            <span class="text-[#F4A300] font-medium">アルバイト紹介</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all group">
+                    <div class="w-2/5 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=900&q=80"
+                            alt="SIM & Lifestyle"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="w-3/5 p-5 flex flex-col justify-center">
+                        <h3 class="text-lg font-semibold text-[#C8102E] mb-2">SIM & Lifestyle</h3>
+                        <p class="text-sm text-gray-700 leading-relaxed">
+                            <span class="text-[#F4A300] font-medium">SIM・生活サービス</span>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT US SECTION -->
+    <section class="relative py-24 bg-[#FFF8F5] overflow-hidden" id="about" data-aos="fade-up" data-aos-duration="1000">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <!-- LEFT CONTENT -->
+            <div data-aos="fade-right" data-aos-delay="200">
+                <h2 class="text-4xl md:text-5xl font-bold text-[#C8102E] mb-3">ABOUT US</h2>
+                <h3 class="text-[#C8102E]/80 text-lg mb-6 tracking-wide">会社概要</h3>
+
+                <p class="text-gray-700 leading-relaxed text-base md:text-lg mb-4">
+                    <strong>VIJP Co., Ltd</strong> is a member of <strong>Tin Phat Group</strong> (Vietnam) — a trusted
+                    enterprise with
+                    years of experience in education, human resources, and business development. VIJP represents Tin
+                    Phat in Japan,
+                    supporting Vietnamese students and companies in both countries.
+                </p>
+                <p class="text-gray-600 text-base md:text-lg mb-4">
+                    ベトナムの<strong>Tín Phátグループ</strong>の日本法人である<strong>VIJP株式会社</strong>は、教育・人材・事業発展において豊富な実績を持つ企業です。
+                    私たちは、日本でのベトナム人留学生支援や企業間の協力促進を目的に活動しています。
+                </p>
+
+                <div class="mt-6 border-l-4 border-[#C8102E] pl-4">
+                    <h4 class="font-semibold text-[#C8102E] mb-1">🌏 Vision / ビジョン</h4>
+                    <p class="text-gray-700 text-base mb-3">
+                        To become a reliable bridge for human resource and business cooperation between Vietnam and
+                        Japan.
+                    </p>
+                    <p class="text-gray-600 text-sm">
+                        ベトナムと日本をつなぐ信頼できる人材・事業協力の架け橋となる。
+                    </p>
+
+                    <h4 class="font-semibold text-[#C8102E] mt-4 mb-1">🎯 Mission / ミッション</h4>
+                    <p class="text-gray-700 text-base mb-3">
+                        To provide comprehensive, transparent, and reliable services for international students and
+                        partners.
+                    </p>
+                    <p class="text-gray-600 text-sm">
+                        留学生や企業パートナーに対し、安心・信頼・透明性のある包括的なサービスを提供する。
+                    </p>
+                </div>
+
+                <button mat-flat-button color="warn"
+                    class="mt-8 bg-[#C8102E] hover:bg-[#a50d25] text-white font-semibold px-8 py-3 rounded-lg text-base shadow-lg transition-transform transform hover:scale-105"
+                    routerLink="/about">
+                    READ MORE / 詳しく見る
+                </button>
+            </div>
+
+            <!-- RIGHT IMAGES -->
+            <div class="relative grid grid-cols-2 gap-4" data-aos="fade-left" data-aos-delay="300">
+                <!-- Left Column (2 images) -->
+                <div class="space-y-4">
+                    <!-- Image 1 -->
+                    <div class="relative rounded-2xl overflow-hidden shadow-lg group">
+                        <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&q=80" alt="Office"
+                            class="w-full h-60 object-cover transition-transform duration-700 group-hover:scale-110" />
+                        <div
+                            class="absolute inset-0 bg-[#C8102E]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center text-white text-sm font-semibold">
+                            Office / オフィス
+                        </div>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="relative rounded-2xl overflow-hidden shadow-lg group">
+                        <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&q=80" alt="Meeting"
+                            class="w-full h-60 object-cover transition-transform duration-700 group-hover:scale-110" />
+                        <div
+                            class="absolute inset-0 bg-[#F4A300]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center text-white text-sm font-semibold">
+                            Meeting / ミーティング
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column (2 images) - lowered for staggered effect -->
+                <div class="space-y-4 mt-10 md:mt-12">
+                    <!-- Image 3 -->
+                    <div class="relative rounded-2xl overflow-hidden shadow-lg group">
+                        <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&q=80" alt="Team"
+                            class="w-full h-60 object-cover transition-transform duration-700 group-hover:scale-110" />
+                        <div
+                            class="absolute inset-0 bg-[#C8102E]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center text-white text-sm font-semibold">
+                            Team / チーム
+                        </div>
+                    </div>
+
+                    <!-- Image 4 -->
+                    <div class="relative rounded-2xl overflow-hidden shadow-lg group">
+                        <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&q=80"
+                            alt="Collaboration"
+                            class="w-full h-60 object-cover transition-transform duration-700 group-hover:scale-110" />
+                        <div
+                            class="absolute inset-0 bg-[#F4A300]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center text-white text-sm font-semibold">
+                            Collaboration / 協力
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- SERVICES SECTION -->
+    <section class="py-24 bg-white" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+
+            <!-- TITLE -->
+            <h2 class="text-4xl font-bold text-[#C8102E] mb-2" data-aos="fade-down" data-aos-delay="100">
+                SERVICES
+            </h2>
+            <h3 class="text-[#C8102E]/80 text-lg mb-12 tracking-wide" data-aos="fade-down" data-aos-delay="200">
+                サービス
+            </h3>
+
+            <!-- GRID -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <!-- CARD 1 -->
+                <div class="group bg-[#FFF8F5] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500"
+                    data-aos="zoom-in-up" data-aos-delay="100">
+                    <div class="overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&q=80"
+                            alt="Student Support"
+                            class="w-full h-56 object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="text-[#C8102E] font-semibold text-xl mb-1">STUDENT SUPPORT</h4>
+                        <p class="text-[#C8102E]/70 mb-3">留学生支援</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Comprehensive support for Vietnamese students in Japan — from airport pickup to housing and
+                            daily life.
+                        </p>
+                        <p class="text-gray-500 text-sm mt-1">
+                            空港送迎、在留手続き、SIM登録、住居・アルバイト支援など、留学生生活を全面サポート。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="group bg-[#FFF8F5] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500"
+                    data-aos="zoom-in-up" data-aos-delay="200">
+                    <div class="overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80"
+                            alt="Real Estate"
+                            class="w-full h-56 object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="text-[#C8102E] font-semibold text-xl mb-1">REAL ESTATE</h4>
+                        <p class="text-[#C8102E]/70 mb-3">不動産サポート</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Introducing and managing apartments, dormitories, and housing in partnership with trusted
+                            Japanese real estate firms.
+                        </p>
+                        <p class="text-gray-500 text-sm mt-1">
+                            信頼できる日本の不動産会社と提携し、賃貸物件や学生寮を紹介・契約・管理。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CARD 3 -->
+                <div class="group bg-[#FFF8F5] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500"
+                    data-aos="zoom-in-up" data-aos-delay="300">
+                    <div class="overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=900&q=80" alt="Jobs"
+                            class="w-full h-56 object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="text-[#C8102E] font-semibold text-xl mb-1">JOBS</h4>
+                        <p class="text-[#C8102E]/70 mb-3">アルバイト紹介</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Part-time job matching for students based on ability, schedule, and desired field — with
+                            interpreter support.
+                        </p>
+                        <p class="text-gray-500 text-sm mt-1">
+                            学生の能力・時間に合わせたアルバイト紹介。面接や契約時の通訳サポート付き。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CARD 4 -->
+                <div class="group bg-[#FFF8F5] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500"
+                    data-aos="zoom-in-up" data-aos-delay="400">
+                    <div class="overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=900&q=80"
+                            alt="SIM & Services"
+                            class="w-full h-56 object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h4 class="text-[#C8102E] font-semibold text-xl mb-1">SIM & SERVICES</h4>
+                        <p class="text-[#C8102E]/70 mb-3">SIM・生活サポート</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            SIM card setup, internet, bank account, and lifestyle assistance — everything students need
+                            for life in Japan.
+                        </p>
+                        <p class="text-gray-500 text-sm mt-1">
+                            SIM登録、インターネット、銀行口座開設、行政手続きなど、日本生活を支援します。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- PARTNERSHIP SECTION -->
+    <section class="py-24 bg-[#FFF8F5]" id="partnership" data-aos="fade-up" data-aos-duration="800">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+
+            <!-- HEADING -->
+            <div data-aos="fade-down" data-aos-delay="100">
+                <h2 class="text-4xl font-bold text-[#C8102E] mb-2">PARTNERSHIP</h2>
+                <h3 class="text-[#C8102E]/80 text-lg mb-6 tracking-wide">協力・パートナーシップ</h3>
+            </div>
+
+            <!-- DESCRIPTION -->
+            <p class="max-w-4xl mx-auto text-gray-700 mb-12 text-base md:text-lg leading-relaxed" data-aos="fade-up"
+                data-aos-delay="150">
+                We are proud to collaborate with over
+                <span class="text-[#C8102E] font-semibold">50 Japanese schools</span>,
+                <span class="text-[#C8102E] font-semibold">30 labor unions</span>, and
+                <span class="text-[#C8102E] font-semibold">20 companies</span> across Japan.<br />
+                私たちは日本全国の<span class="text-[#C8102E] font-semibold">50校以上の日本語学校</span>、
+                <span class="text-[#C8102E] font-semibold">30の協同組合</span>、
+                <span class="text-[#C8102E] font-semibold">20社以上の企業</span>と提携しています。
+            </p>
+
+            <!-- PARTNER LOGOS GRID -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-20" data-aos="fade-up"
+                data-aos-delay="200">
+                <div *ngFor="let logo of partnerLogos"
+                    class="flex items-center justify-center bg-white rounded-xl shadow-sm hover:shadow-lg transition-all p-4">
+                    <img [src]="logo" alt="Partner Logo"
+                        class="h-12 object-contain opacity-80 hover:opacity-100 transition" />
+                </div>
+            </div>
+
+            <!-- FORM -->
+            <div class="bg-white shadow-xl rounded-2xl p-8 md:p-12 max-w-3xl mx-auto" data-aos="fade-up"
+                data-aos-delay="300" data-aos-duration="1000">
+                <h4 class="text-2xl font-semibold text-[#C8102E] mb-1">Partner With VIJP</h4>
+                <p class="text-[#C8102E]/70 mb-6">提携・協力のお申し込み</p>
+
+                <form (ngSubmit)="onSubmitPartnerForm()" [formGroup]="partnerForm"
+                    class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+
+                    <!-- Company -->
+                    <mat-form-field appearance="outline">
+                        <mat-label>Company Name / 会社名</mat-label>
+                        <input matInput formControlName="company" placeholder="Enter your company name" />
+                    </mat-form-field>
+
+                    <!-- Person in Charge -->
+                    <mat-form-field appearance="outline">
+                        <mat-label>Contact Person / 担当者</mat-label>
+                        <input matInput formControlName="person" placeholder="Enter contact name" />
+                    </mat-form-field>
+
+                    <!-- Email -->
+                    <mat-form-field appearance="outline" class="md:col-span-2">
+                        <mat-label>Email / メール</mat-label>
+                        <input matInput formControlName="email" placeholder="example@domain.jp" />
+                    </mat-form-field>
+
+                    <!-- Cooperation Type -->
+                    <mat-form-field appearance="outline">
+                        <mat-label>Type of Cooperation / 協力種別</mat-label>
+                        <mat-select formControlName="type">
+                            <mat-option value="real-estate">Real Estate / 不動産</mat-option>
+                            <mat-option value="school">Language School / 学校</mat-option>
+                            <mat-option value="recruitment">Recruitment / 採用</mat-option>
+                            <mat-option value="other">Other / その他</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <!-- Message -->
+                    <mat-form-field appearance="outline" class="md:col-span-2">
+                        <mat-label>Message / 内容</mat-label>
+                        <textarea matInput formControlName="message" rows="4"
+                            placeholder="Describe your cooperation idea..."></textarea>
+                    </mat-form-field>
+
+                    <!-- Submit -->
+                    <div class="md:col-span-2 text-center">
+                        <button mat-flat-button color="warn"
+                            class="bg-[#C8102E] hover:bg-[#a50d25] text-white font-semibold px-10 py-3 rounded-lg shadow-md transition-transform transform hover:scale-105"
+                            type="submit">
+                            SEND REQUEST / 送信
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWS SECTION -->
+    <section class="py-24 bg-white relative overflow-hidden" id="news" data-aos="fade-up" data-aos-duration="800">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+
+            <!-- TITLE -->
+            <div data-aos="fade-down" data-aos-delay="100">
+                <h2 class="text-4xl font-bold text-[#C8102E] mb-2">NEWS & EVENTS</h2>
+                <h3 class="text-[#C8102E]/80 text-lg mb-12 tracking-wide">ニュース・イベント</h3>
+            </div>
+
+            <!-- NEWS GRID -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div *ngFor="let news of newsList; let i = index"
+                    class="group bg-[#FFF8F5] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1"
+                    [attr.data-aos]="i % 2 === 0 ? 'fade-up-right' : 'fade-up-left'"
+                    [attr.data-aos-delay]="150 + (i * 100)">
+
+                    <!-- IMAGE -->
+                    <div class="overflow-hidden relative">
+                        <img [src]="news.image" [alt]="news.titleEn"
+                            class="w-full h-56 object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" />
+                        <!-- Overlay for better contrast -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                    </div>
+
+                    <!-- CONTENT -->
+                    <div class="p-6 text-left">
+                        <p class="text-sm text-gray-500 mb-1" data-aos="fade" data-aos-delay="100">{{ news.date |
+                            date:'MMM d, y' }}</p>
+                        <h4 class="text-[#C8102E] font-semibold text-xl mb-1 hover:text-[#a50d25] cursor-pointer transition-colors duration-300"
+                            data-aos="fade-right" data-aos-delay="250">
+                            {{ news.titleEn }}
+                        </h4>
+                        <p class="text-[#C8102E]/80 text-sm mb-2" data-aos="fade-right" data-aos-delay="200">
+                            {{ news.titleJp }}
+                        </p>
+                        <p class="text-gray-700 text-sm leading-relaxed mb-4" data-aos="fade-up" data-aos-delay="250">
+                            {{ news.description }}
+                        </p>
+                        <a routerLink="/news/{{ news.slug }}"
+                            class="inline-flex items-center text-[#C8102E] font-semibold hover:underline transition-all duration-300"
+                            data-aos="zoom-in" data-aos-delay="250">
+                            READ MORE / 詳しく見る
+                            <mat-icon svgIcon="mat:arrow_forward"
+                                class="ml-1 text-[#C8102E] transition-transform duration-300 group-hover:translate-x-1"></mat-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA BUTTON -->
+            <div class="mt-16" data-aos="zoom-in-up" data-aos-delay="450" data-aos-duration="250">
+                <button mat-flat-button color="warn"
+                    class="bg-[#C8102E] hover:bg-[#a50d25] text-white font-semibold px-10 py-3 rounded-lg shadow-md transition-transform transform hover:scale-110 hover:shadow-xl">
+                    VIEW ALL NEWS / すべてのニュースを見る
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- GALLERY SECTION -->
+    <section class="py-24 bg-[#FFF8F5] relative overflow-hidden" id="gallery" data-aos="fade-up"
+        data-aos-duration="800">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+
+            <!-- TITLE -->
+            <div data-aos="fade-down" data-aos-delay="100">
+                <h2 class="text-4xl font-bold text-[#C8102E] mb-2">GALLERY</h2>
+                <h3 class="text-[#C8102E]/80 text-lg mb-12 tracking-wide">フォト・ギャラリー</h3>
+            </div>
+
+            <!-- VIDEO INTRO -->
+            <div class="mb-16 flex justify-center" data-aos="zoom-in" data-aos-delay="200">
+                <div
+                    class="relative w-full md:w-3/4 aspect-video rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-700 hover:scale-[1.02]">
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/4Y6dJoZlSag?si=KKPSujwf3z1BhuGv"
+                        title="VIJP Introduction Video" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+
+                    <!-- subtle gradient overlay for style -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#C8102E]/10 to-transparent pointer-events-none">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ALBUM TABS -->
+            <div class="flex flex-wrap justify-center mb-10 gap-3" data-aos="fade-up" data-aos-delay="300">
+                <button *ngFor="let album of albumCategories; let i = index" (click)="activeAlbum = album.key"
+                    class="px-6 py-2 text-sm md:text-base font-semibold rounded-full transition-all duration-300"
+                    [attr.data-aos]="'zoom-in'" [attr.data-aos-delay]="350 + (i * 80)" [ngClass]="{
+          'bg-[#C8102E] text-white shadow-lg scale-105': activeAlbum === album.key,
+          'bg-white text-[#C8102E] border border-[#C8102E]/40 hover:bg-[#C8102E]/10': activeAlbum !== album.key
+        }">
+                    {{ album.name }}
+                </button>
+            </div>
+
+            <!-- GALLERY GRID -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mt-6">
+                <div *ngFor="let img of galleryImages[activeAlbum]; let i = index"
+                    class="group relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1"
+                    [attr.data-aos]="'zoom-in-up'" [attr.data-aos-delay]="400 + (i * 80)">
+
+                    <!-- IMAGE -->
+                    <img [src]="img" alt="Gallery photo"
+                        class="w-full h-52 object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" />
+
+                    <!-- OVERLAY -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center text-white font-semibold text-sm">
+                        View / 閲覧
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Decorative gradient background -->
+        <div
+            class="absolute inset-0 bg-gradient-to-tr from-[#F4A300]/10 via-transparent to-[#C8102E]/10 opacity-60 blur-3xl pointer-events-none">
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="bg-white py-20 relative" data-aos="fade-up" data-aos-duration="300">
+        <div class="max-w-4xl mx-auto px-6 text-center py-20 ">
+            <!-- TITLE -->
+            <h2 class="text-4xl md:text-3xl font-bold text-[#C8102E] uppercase">
+                CONTACT US
+            </h2>
+            <p class="text-[#C8102E] text-xl font-medium mb-8">
+                お問い合わせフォーム
+            </p>
+
+            <!-- DESCRIPTION -->
+            <p class="max-w-2xl mx-auto text-gray-600 mb-10 text-base leading-relaxed">
+                Please fill out the form below and our team will get back to you soon.<br />
+                下記のフォームに必要事項をご記入の上、送信してください。
+            </p>
+
+            <!-- CONTACT FORM -->
+            <form [formGroup]="partnerForm" (ngSubmit)="onSubmitPartnerForm()"
+                class="bg-white rounded-2xl shadow-lg border border-[#F4A300]/30 p-8 grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                <!-- LEFT SIDE -->
+                <div class="space-y-4">
+                    <mat-form-field appearance="outline" class="w-full">
+                        <mat-label>Name / お名前</mat-label>
+                        <input matInput formControlName="name" required />
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="w-full">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="email" formControlName="email" required />
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="w-full">
+                        <mat-label>Phone Number / 電話番号</mat-label>
+                        <input matInput formControlName="phone" />
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="w-full">
+                        <mat-label>Inquiry Type / お問い合わせ種類</mat-label>
+                        <mat-select formControlName="category">
+                            <mat-option value="study">Study Abroad / 留学</mat-option>
+                            <mat-option value="job">Recruitment / 採用</mat-option>
+                            <mat-option value="partnership">Partnership / 協力</mat-option>
+                            <mat-option value="other">Other / その他</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <!-- RIGHT SIDE -->
+                <div class="space-y-4 flex flex-col justify-between">
+                    <mat-form-field appearance="outline" class="w-full flex-1">
+                        <mat-label>Message / メッセージ</mat-label>
+                        <textarea matInput formControlName="message" rows="8"
+                            placeholder="Please write your message here... / ご用件をご記入ください。"></textarea>
+                    </mat-form-field>
+
+
+                </div>
+                <div class="col-span-1 md:col-span-2 flex justify-center mt-4">
+                    <button mat-flat-button color="warn" type="submit"
+                        class="bg-[#C8102E] hover:bg-[#F4A300] text-white font-semibold py-3 px-10 rounded-md transition duration-300 shadow-md hover:shadow-lg">
+                        SEND MESSAGE / 送信する
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>

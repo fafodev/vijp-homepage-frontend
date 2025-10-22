@@ -1,0 +1,60 @@
+<div class="min-h-screen bg-gray-50" @scaleFadeIn *ngIf="formItemNmLoaded">
+    <!-- Header -->
+    <header class="relative bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400 text-white overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center opacity-30"
+            style="background-image: url('./assets/img/bussiness/bussiness-header.jpg');"></div>
+        <div class="relative z-10 text-center py-20 px-4">
+            <h1 class="text-6xl mb-10 font-extrabold tracking-wide drop-shadow-lg" [innerHTML]="listFormItemNm[1]"></h1>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full h-16 bg-white rounded-t-[50%]"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto py-16">
+        <!-- Section 1 -->
+        <section class="mb-20">
+            <h2 *ngIf="!infoSended" class="text-2xl font-bold text-blue-700 text-center mb-12"
+                [innerHTML]="listFormItemNm[2]"></h2>
+            <h2 *ngIf="infoSended" class="text-2xl font-bold text-yellow-500 text-center mb-12"
+                [innerHTML]="listFormItemNm[11]"></h2>
+        </section>
+
+        <!-- Contact Form -->
+        <section class="bg-white shadow-lg rounded-xl p-8 mb-16" *ngIf="!infoSended">
+            <h2 class="text-3xl font-bold text-blue-700 mb-8 text-center" [innerHTML]="listFormItemNm[3]"></h2>
+            <h2 class="text-lg font-bold text-yellow-500 mb-8 text-center" [innerHTML]="listFormItemNm[4]">
+            </h2>
+            <div [formGroup]="form" class="p-6 flex flex-col gap-4 flex-auto flex flex-col">
+                <div>
+                    <mat-form-field class="flex-1 block pb-3">
+                        <mat-label [innerHTML]="listFormItemNm[5]"></mat-label>
+                        <input formControlName="name" matInput required />
+                        <mat-error *ngIf="form.controls['name'].invalid && form.controls['name'].touched"
+                            [innerHTML]="listFormItemNm[10]">
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="flex-1 block pb-3">
+                        <mat-label [innerHTML]="listFormItemNm[6]"></mat-label>
+                        <input formControlName="email" matInput required />
+                        <mat-error *ngIf="form.controls['email'].invalid && form.controls['email'].touched"
+                            [innerHTML]="listFormItemNm[9]">
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="flex-1 block pb-3">
+                        <mat-label [innerHTML]="listFormItemNm[7]"></mat-label>
+                        <textarea formControlName="message" matInput required></textarea>
+                        <mat-error *ngIf="form.controls['message'].invalid && form.controls['message'].touched"
+                            [innerHTML]="listFormItemNm[10]">
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <button (click)="send()" color="primary" mat-raised-button type="button">
+                    <mat-icon class="ltr:-ml-1 rtl:-mr-1 ltr:mr-2 rtl:ml-2" svgIcon="mat:send"></mat-icon>
+                    <span [innerHTML]="listFormItemNm[8]"></span>
+                </button>
+            </div>
+        </section>
+    </main>
+</div>

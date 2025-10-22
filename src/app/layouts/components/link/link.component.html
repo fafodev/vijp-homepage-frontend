@@ -1,0 +1,36 @@
+<div class="min-h-screen bg-gray-50" @scaleFadeIn *ngIf="formItemNmLoaded">
+    <!-- Header -->
+    <header class="relative bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400 text-white overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center opacity-30"
+            style="background-image: url('./assets/img/bussiness/bussiness-header.jpg');"></div>
+        <div class="relative z-10 text-center py-20 px-4">
+            <h1 class="text-6xl mb-10 font-extrabold tracking-wide drop-shadow-lg" [innerHTML]="listFormItemNm[1]"></h1>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full h-16 bg-white rounded-t-[50%]"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto py-16">
+        <!-- Section 1 -->
+        <section class="mb-20">
+            <div class="grid grid-cols-1 md:grid-cols-1 mb-4" *ngFor="let link of links; let i = index">
+                <!-- Card -->
+                <div class="relative bg-white shadow-lg rounded-lg w-full p-6 group transition-transform duration-500">
+                    <!-- Tiêu đề -->
+                    <div
+                        class="absolute text-center min-w-[400px] top-5 -left-5 bg-blue-500 text-white text-sm font-bold px-4 py-2 rounded-tr-lg rounded-bl-lg transition-all duration-500 ease-in-out group-hover:w-full group-hover:text-2xl group-hover:left-0 group-hover:top-0 group-hover:rounded-none group-hover:text-center group-hover:h-12 group-hover:flex group-hover:items-center group-hover:justify-center">
+                        {{link.title}}
+                    </div>
+
+                    <!-- Nội dung -->
+                    <div class="mt-16">
+                        <p class="text-sm text-gray-500 mb-2">{{link.description}}</p>
+                        <a href="https://www.otit.go.jp" target="_blank" class="text-blue-500 hover:underline">
+                            {{link.url}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>

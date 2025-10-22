@@ -1,0 +1,50 @@
+<div class="min-h-screen bg-gray-50" @scaleFadeIn *ngIf="formItemNmLoaded">
+    <!-- Header -->
+    <header class="relative bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400 text-white overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center opacity-30"
+            style="background-image: url('./assets/img/bussiness/bussiness-header.jpg');"></div>
+        <div class="relative z-10 text-center py-20 px-4">
+            <h1 class="text-6xl mb-10 font-extrabold tracking-wide drop-shadow-lg" [innerHTML]="listFormItemNm[1]">
+            </h1>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full h-16 bg-white rounded-t-[50%]"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto py-12">
+        <!-- Section 1: Overview Table -->
+        <section class="min-h-screen bg-gray-50 p-8">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold text-blue-700 mb-8 text-center" [innerHTML]="listFormItemNm[2]"></h2>
+
+                <!-- Timeline -->
+                <div class="relative border-l-2 border-blue-400">
+
+
+                    <!-- News Item 1 -->
+                    <div class="mb-8 flex items-center cursor-pointer" (click)="postClick(post)"
+                        *ngFor="let post of listPosts">
+                        <div
+                            class="flex items-center  justify-center w-6 h-6 bg-blue-500 text-white text-xs font-bold rounded-full -ml-3 z-10">
+                            {{post.INDEX}}
+                        </div>
+                        <div class="w-full ml-8">
+                            <div class="border-b border-gray-300 mb-4"></div>
+                            <p class="text-blue-500 font-semibold">{{post.CREATED_AT}}</p>
+                            <p class="text-gray-700" [innerHTML]="post.TITLE"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="flex justify-center mt-8">
+                    <mat-paginator #paginator class="demo-paginator" (page)="handlePageEvent($event)" [length]="length"
+                        [pageSize]="pageSize" [disabled]="disabled" [showFirstLastButtons]="showFirstLastButtons"
+                        [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []" [hidePageSize]="hidePageSize"
+                        [pageIndex]="pageIndex" aria-label="Select page">
+                    </mat-paginator>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>

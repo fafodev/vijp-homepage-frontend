@@ -1,0 +1,44 @@
+<div class="min-h-screen bg-gray-50" @scaleFadeIn *ngIf="formItemNmLoaded">
+    <!-- Header -->
+    <header class="relative bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400 text-white overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center opacity-30"
+            style="background-image: url('./assets/img/bussiness/bussiness-header.jpg');"></div>
+        <div class="relative z-10 text-center py-20 px-4">
+            <h1 class="text-6xl mb-10 font-extrabold tracking-wide drop-shadow-lg" [innerHTML]="listFormItemNm[1]"></h1>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full h-16 bg-white rounded-t-[50%]"></div>
+    </header>
+
+    <div class="min-h-screen bg-gray-50 py-10">
+        <div class="container mx-auto">
+            <!-- Search Results -->
+            <div class="py-10">
+                <div class="container mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Card -->
+                        <div *ngFor="let search of searchResult" (click)="linkToDetail(search)"
+                            class="cursor-pointer bg-white rounded-lg shadow-lg border hover:border-blue-500 transition duration-300 transform hover:-translate-y-2 p-5">
+                            <div class="flex items-center justify-between mb-4">
+                                <!-- Title -->
+                                <h3 class="text-lg font-bold text-blue-600 truncate">
+                                    {{ search.TITLE }}
+                                </h3>
+                                <!-- Icon -->
+                                <mat-icon svgIcon="mat:info" class="icon-md text-blue-500"></mat-icon>
+                            </div>
+
+                            <!-- Content -->
+                            <p class="text-sm text-gray-600 mb-4 line-clamp-3">
+                                {{ search.BODY }}
+                            </p>
+
+                            <!-- Link -->
+                            <div class="flex items-center text-blue-500 text-sm mt-auto">
+                                <mat-icon svgIcon="mat:link" class="icon-md"></mat-icon>
+                                <p class="text-xs text-gray-400">{{ basePath + "" + search.LINK }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
