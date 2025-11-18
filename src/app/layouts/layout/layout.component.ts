@@ -132,4 +132,32 @@ export class LayoutComponent {
             },
         });
     }
+
+    scrollToContact(): void {
+        const el = document.getElementById('contact');
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+    scrollToHome(): void {
+        const el = document.getElementById('home');
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+    scrollToAbout(): void {
+        const el = document.getElementById('about');
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+    scrollToServices(): void {
+        const el = document.getElementById('services');
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
 }

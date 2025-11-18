@@ -5,7 +5,7 @@
 <div class="w-full font-sans text-gray-800">
 
     <!-- HERO SECTION -->
-    <section id="home" class="relative w-full min-h-[70vh] md:h-[70vh] bg-cover bg-center"
+    <section class="relative w-full min-h-[70vh] md:h-[70vh] bg-cover bg-center"
         style="background-image: url('https://images.unsplash.com/photo-1525182008055-f88b95ff7980?w=1600&q=80');"
         role="region" aria-label="Hero - VIJP">
 
@@ -13,7 +13,7 @@
         <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/10"></div>
 
         <!-- decorative logo on right (show on all screens, nhỏ hơn trên mobile) -->
-        <div data-aos="fade-left" data-aos-delay="200" class="absolute top-0 right-8 sm:right-10 md:right-12 z-30 pointer-events-none">
+        <div class="absolute top-0 right-8 sm:right-10 md:right-12 z-30 pointer-events-none">
             <img src="assets/img/logo/logo.png" alt="VIJP Logo"
                 class="w-32 sm:w-40 md:w-48 lg:w-56 xl:w-64 max-w-none" />
         </div>
@@ -48,7 +48,7 @@
         </div>
 
         <!-- LICENSE BLOCK -->
-        <div data-aos="fade-left" data-aos-delay="200" class="z-20 w-full px-4 sm:px-6 mt-4 md:mt-0 md:w-auto md:px-0 md:absolute md:bottom-6 md:right-6">
+        <div class="z-20 w-full px-4 sm:px-6 mt-4 md:mt-0 md:w-auto md:px-0 md:absolute md:bottom-6 md:right-6">
             <div class="text-white text-[11px] sm:text-xs md:text-sm px-4 py-3 rounded-lg shadow-lg max-w-md sm:max-w-lg md:max-w-xl mx-auto md:mx-0 bg-white/10 backdrop-blur-sm border border-white/10"
                 style="line-height:1.4;">
                 <div class="grid gap-x-4 gap-y-1" style="grid-template-columns: auto auto minmax(120px, 1fr);">
@@ -178,7 +178,7 @@
     </section>
 
     <!-- ABOUT US SECTION -->
-    <section id="about" class="relative py-24 bg-[#FFF8F5] overflow-hidden" id="about" data-aos="fade-up" data-aos-duration="1000">
+    <section class="relative py-24 bg-[#FFF8F5] overflow-hidden" id="about" data-aos="fade-up" data-aos-duration="1000">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <!-- LEFT CONTENT -->
             <div data-aos="fade-right" data-aos-delay="200">
@@ -359,7 +359,7 @@
 
 
     <!-- SERVICES SECTION -->
-    <section id="services" class="py-24 bg-white" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
+    <section class="py-24 bg-white" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
         <div class="max-w-7xl mx-auto px-6 text-center">
 
             <!-- TITLE -->
@@ -509,44 +509,44 @@
             <!-- FORM -->
             <div class="bg-white shadow-xl rounded-2xl p-8 md:p-12 max-w-3xl mx-auto" data-aos="fade-up"
                 data-aos-delay="300" data-aos-duration="1000">
-                <h4 class="text-2xl font-semibold text-[#C8102E] mb-1">提携・協力のお申し込み </h4>
-                <p class="text-[#C8102E]/70 mb-6">Partnership Application</p>
+                <h4 class="text-2xl font-semibold text-[#C8102E] mb-1">Partner With VIJP</h4>
+                <p class="text-[#C8102E]/70 mb-6">提携・協力のお申し込み</p>
 
                 <form (ngSubmit)="onSubmitPartnerForm()" [formGroup]="partnerForm"
                     class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
 
                     <!-- Company -->
                     <mat-form-field appearance="outline">
-                        <mat-label>会社名 / Company Name</mat-label>
+                        <mat-label>Company Name / 会社名</mat-label>
                         <input matInput formControlName="companyName" placeholder="Enter your company name" />
                     </mat-form-field>
 
                     <!-- Person in Charge -->
                     <mat-form-field appearance="outline">
-                        <mat-label>担当者 / Contact Person</mat-label>
+                        <mat-label>Contact Person / 担当者</mat-label>
                         <input matInput formControlName="contactPerson" placeholder="Enter contact name" />
                     </mat-form-field>
 
                     <!-- Email -->
                     <mat-form-field appearance="outline" class="md:col-span-2">
-                        <mat-label>メール / Email</mat-label>
+                        <mat-label>Email / メール</mat-label>
                         <input matInput formControlName="email" placeholder="example@domain.jp" />
                     </mat-form-field>
 
                     <!-- Cooperation Type -->
                     <mat-form-field appearance="outline">
-                        <mat-label>協力種別 / Type of Cooperation</mat-label>
+                        <mat-label>Type of Cooperation / 協力種別</mat-label>
                         <mat-select formControlName="cooperationType">
-                            <mat-option value="Real Estate / 不動産">不動産 / Real Estate</mat-option>
-                            <mat-option value="Language School / 学校">学校 / Language School</mat-option>
-                            <mat-option value="Recruitment / 採用">採用 / Recruitment</mat-option>
-                            <mat-option value="Other / その他">その他 / Other</mat-option>
+                            <mat-option value="Real Estate / 不動産">Real Estate / 不動産</mat-option>
+                            <mat-option value="Language School / 学校">Language School / 学校</mat-option>
+                            <mat-option value="Recruitment / 採用">Recruitment / 採用</mat-option>
+                            <mat-option value="Other / その他">Other / その他</mat-option>
                         </mat-select>
                     </mat-form-field>
 
                     <!-- Message -->
                     <mat-form-field appearance="outline" class="md:col-span-2">
-                        <mat-label>内容 / Message</mat-label>
+                        <mat-label>Message / 内容</mat-label>
                         <textarea matInput formControlName="message" rows="4"
                             placeholder="Describe your cooperation idea..."></textarea>
                     </mat-form-field>
@@ -556,7 +556,7 @@
                         <button mat-flat-button color="warn"
                             class="bg-[#C8102E] hover:bg-[#a50d25] text-white font-semibold px-10 py-3 rounded-lg shadow-md transition-transform transform hover:scale-105"
                             type="submit">
-                            送信 / SEND REQUEST
+                            SEND REQUEST / 送信
                         </button>
                     </div>
 
@@ -565,23 +565,150 @@
         </div>
     </section>
 
-    
+    <!-- NEWS SECTION -->
+    <section class="py-24 bg-white relative overflow-hidden" id="news" data-aos="fade-up" data-aos-duration="800">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+
+            <!-- TITLE -->
+            <div data-aos="fade-down" data-aos-delay="100">
+                <h2 class="text-4xl font-bold text-[#C8102E] mb-2">NEWS & EVENTS</h2>
+                <h3 class="text-[#C8102E]/80 text-lg mb-12 tracking-wide">ニュース・イベント</h3>
+            </div>
+
+            <!-- NEWS GRID -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div *ngFor="let news of newsList; let i = index"
+                    class="group bg-[#FFF8F5] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1"
+                    [attr.data-aos]="i % 2 === 0 ? 'fade-up-right' : 'fade-up-left'"
+                    [attr.data-aos-delay]="150 + (i * 100)">
+
+                    <!-- IMAGE -->
+                    <div class="overflow-hidden relative">
+                        <img [src]="news.image" [alt]="news.titleEn"
+                            class="w-full h-56 object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" />
+                        <!-- Overlay for better contrast -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                    </div>
+
+                    <!-- CONTENT -->
+                    <div class="p-6 text-left">
+                        <p class="text-sm text-gray-500 mb-1" data-aos="fade" data-aos-delay="100">{{ news.date |
+                            date:'MMM d, y' }}</p>
+                        <h4 class="text-[#C8102E] font-semibold text-xl mb-1 hover:text-[#a50d25] cursor-pointer transition-colors duration-300"
+                            data-aos="fade-right" data-aos-delay="250">
+                            {{ news.titleEn }}
+                        </h4>
+                        <p class="text-[#C8102E]/80 text-sm mb-2" data-aos="fade-right" data-aos-delay="200">
+                            {{ news.titleJp }}
+                        </p>
+                        <p class="text-gray-700 text-sm leading-relaxed mb-4" data-aos="fade-up" data-aos-delay="250">
+                            {{ news.description }}
+                        </p>
+                        <a routerLink="/news/{{ news.slug }}"
+                            class="inline-flex items-center text-[#C8102E] font-semibold hover:underline transition-all duration-300"
+                            data-aos="zoom-in" data-aos-delay="250">
+                            READ MORE / 詳しく見る
+                            <mat-icon svgIcon="mat:arrow_forward"
+                                class="ml-1 text-[#C8102E] transition-transform duration-300 group-hover:translate-x-1"></mat-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA BUTTON -->
+            <div class="mt-16" data-aos="zoom-in-up" data-aos-delay="450" data-aos-duration="250">
+                <button mat-flat-button color="warn"
+                    class="bg-[#C8102E] hover:bg-[#a50d25] text-white font-semibold px-10 py-3 rounded-lg shadow-md transition-transform transform hover:scale-110 hover:shadow-xl">
+                    VIEW ALL NEWS / すべてのニュースを見る
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- GALLERY SECTION -->
+    <section class="py-24 bg-[#FFF8F5] relative overflow-hidden" id="gallery" data-aos="fade-up"
+        data-aos-duration="800">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+
+            <!-- TITLE -->
+            <div data-aos="fade-down" data-aos-delay="100">
+                <h2 class="text-4xl font-bold text-[#C8102E] mb-2">GALLERY</h2>
+                <h3 class="text-[#C8102E]/80 text-lg mb-12 tracking-wide">フォト・ギャラリー</h3>
+            </div>
+
+            <!-- VIDEO INTRO -->
+            <div class="mb-16 flex justify-center" data-aos="zoom-in" data-aos-delay="200">
+                <div
+                    class="relative w-full md:w-3/4 aspect-video rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-700 hover:scale-[1.02]">
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/4Y6dJoZlSag?si=KKPSujwf3z1BhuGv"
+                        title="VIJP Introduction Video" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+
+                    <!-- subtle gradient overlay for style -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#C8102E]/10 to-transparent pointer-events-none">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ALBUM TABS -->
+            <div class="flex flex-wrap justify-center mb-10 gap-3" data-aos="fade-up" data-aos-delay="300">
+                <button *ngFor="let album of albumCategories; let i = index" (click)="activeAlbum = album.key"
+                    class="px-6 py-2 text-sm md:text-base font-semibold rounded-full transition-all duration-300"
+                    [attr.data-aos]="'zoom-in'" [attr.data-aos-delay]="350 + (i * 80)" [ngClass]="{
+          'bg-[#C8102E] text-white shadow-lg scale-105': activeAlbum === album.key,
+          'bg-white text-[#C8102E] border border-[#C8102E]/40 hover:bg-[#C8102E]/10': activeAlbum !== album.key
+        }">
+                    {{ album.name }}
+                </button>
+            </div>
+
+            <!-- GALLERY GRID -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mt-6">
+                <div *ngFor="let img of galleryImages[activeAlbum]; let i = index"
+                    class="group relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1"
+                    [attr.data-aos]="'zoom-in-up'" [attr.data-aos-delay]="400 + (i * 80)">
+
+                    <!-- IMAGE -->
+                    <img [src]="img" alt="Gallery photo"
+                        class="w-full h-52 object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" />
+
+                    <!-- OVERLAY -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center text-white font-semibold text-sm">
+                        View / 閲覧
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Decorative gradient background -->
+        <div
+            class="absolute inset-0 bg-gradient-to-tr from-[#F4A300]/10 via-transparent to-[#C8102E]/10 opacity-60 blur-3xl pointer-events-none">
+        </div>
+    </section>
 
     <!-- CONTACT SECTION -->
     <section id="contact" class="bg-white py-20 relative" data-aos="fade-up" data-aos-duration="300">
         <div class="max-w-4xl mx-auto px-6 text-center py-20 ">
             <!-- TITLE -->
             <h2 class="text-4xl md:text-3xl font-bold text-[#C8102E] uppercase">
-                お問い合わせフォーム
+                CONTACT US
             </h2>
             <p class="text-[#C8102E] text-xl font-medium mb-8">
-                CONTACT US
+                お問い合わせフォーム
             </p>
 
             <!-- DESCRIPTION -->
             <p class="max-w-2xl mx-auto text-gray-600 mb-10 text-base leading-relaxed">
-                下記のフォームに必要事項をご記入の上、送信してください。<br />
-                Please fill out the form below and our team will get back to you soon.
+                Please fill out the form below and our team will get back to you soon.<br />
+                下記のフォームに必要事項をご記入の上、送信してください。
             </p>
 
             <!-- CONTACT FORM -->
@@ -590,27 +717,27 @@
                 <!-- LEFT SIDE -->
                 <div class="space-y-4">
                     <mat-form-field appearance="outline" class="w-full">
-                        <mat-label>お名前 / Name</mat-label>
+                        <mat-label>Name / お名前</mat-label>
                         <input matInput formControlName="name" required />
                     </mat-form-field>
 
                     <mat-form-field appearance="outline" class="w-full">
-                        <mat-label>メール / Email</mat-label>
+                        <mat-label>Email</mat-label>
                         <input matInput type="email" formControlName="email" required />
                     </mat-form-field>
 
                     <mat-form-field appearance="outline" class="w-full">
-                        <mat-label>電話番号 / Phone Number</mat-label>
+                        <mat-label>Phone Number / 電話番号</mat-label>
                         <input matInput formControlName="phone" />
                     </mat-form-field>
 
                     <mat-form-field appearance="outline" class="w-full">
-                        <mat-label>お問い合わせ種類 / Inquiry Type</mat-label>
+                        <mat-label>Inquiry Type / お問い合わせ種類</mat-label>
                         <mat-select formControlName="inquiryType">
-                            <mat-option value="study">留学 / Study Abroad</mat-option>
-                            <mat-option value="job">採用 / Recruitment</mat-option>
-                            <mat-option value="partnership">協力 / Partnership</mat-option>
-                            <mat-option value="other">その他 / Other</mat-option>
+                            <mat-option value="study">Study Abroad / 留学</mat-option>
+                            <mat-option value="job">Recruitment / 採用</mat-option>
+                            <mat-option value="partnership">Partnership / 協力</mat-option>
+                            <mat-option value="other">Other / その他</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>
@@ -618,9 +745,9 @@
                 <!-- RIGHT SIDE -->
                 <div class="space-y-4 flex flex-col justify-between">
                     <mat-form-field appearance="outline" class="w-full flex-1">
-                        <mat-label>メッセージ / Message</mat-label>
+                        <mat-label>Message / メッセージ</mat-label>
                         <textarea matInput formControlName="message" rows="8"
-                            placeholder="ご用件をご記入ください。/ Please write your message here..."></textarea>
+                            placeholder="Please write your message here... / ご用件をご記入ください。"></textarea>
                     </mat-form-field>
 
 
@@ -628,7 +755,7 @@
                 <div class="col-span-1 md:col-span-2 flex justify-center mt-4">
                     <button mat-flat-button color="warn" type="submit"
                         class="bg-[#C8102E] hover:bg-[#F4A300] text-white font-semibold py-3 px-10 rounded-md transition duration-300 shadow-md hover:shadow-lg">
-                        送信する / SEND MESSAGE
+                        SEND MESSAGE / 送信する
                     </button>
                 </div>
             </form>

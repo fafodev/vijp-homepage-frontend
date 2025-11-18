@@ -10,7 +10,7 @@ import {
     CarouselItemComponent,
     ThemeDirective
 } from '@coreui/angular';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule, FormControl, ValidationErrors } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { scaleFadeIn500ms } from '@vex/animations/scale-fade-in.animation';
 import { MatIconModule } from '@angular/material/icon';
@@ -22,7 +22,7 @@ import { LoadingBarService } from '@ngx-loading-bar/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { SplashScreenService } from 'src/app/services/splash-screen.service';
-import { Observable } from 'rxjs';
+import { catchError, map, Observable, of } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { selectCurrentLanguage } from 'src/app/state/language/language.selectors';
 import { MatPaginatorIntl, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
@@ -33,6 +33,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ScrollDispatcher } from '@angular/cdk/scrolling';
 // @ts-ignore
 import * as AOS from 'aos';
+import { ReCaptchaV3Service, RecaptchaV3Module } from 'ng-recaptcha';
+import { FafoService } from '@vex/services/fafo.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface ServiceItem {
     id: string;
@@ -49,7 +52,7 @@ interface ServiceItem {
     templateUrl: './home.component.html',
     styleUrl: './home.component.scss',
     animations: [scaleFadeIn500ms],
-    imports: [RouterModule, ReactiveFormsModule, FormsModule, MatSelectModule, MatOptionModule, MatInputModule, MatFormFieldModule, MatPaginatorModule, MatButtonModule, MatIconModule, CommonModule, ThemeDirective, CarouselComponent, CarouselIndicatorsComponent, CarouselInnerComponent, NgFor, CarouselItemComponent, CarouselCaptionComponent, CarouselControlComponent]
+    imports: [RecaptchaV3Module, RouterModule, ReactiveFormsModule, FormsModule, MatSelectModule, MatOptionModule, MatInputModule, MatFormFieldModule, MatPaginatorModule, MatButtonModule, MatIconModule, CommonModule, ThemeDirective, CarouselComponent, CarouselIndicatorsComponent, CarouselInnerComponent, NgFor, CarouselItemComponent, CarouselCaptionComponent, CarouselControlComponent]
 })
 export class HomeComponent {
     constructor(
@@ -62,20 +65,43 @@ export class HomeComponent {
         private router: Router,
         private postService: PostService,
         private fb: FormBuilder,
-        private scrollDispatcher: ScrollDispatcher) {
+        private recaptchaV3Service: ReCaptchaV3Service,
+        private scrollDispatcher: ScrollDispatcher,
+        private snackBar: MatSnackBar,
+        private fafoService: FafoService) {
+
         this.partnerForm = this.fb.group({
-            company: ['', Validators.required],
-            person: ['', Validators.required],
-            email: ['', [Validators.required, Validators.email]],
-            type: [''],
-            message: ['']
+            companyName: ['', Validators.required],
+            contactPerson: ['', Validators.required],
+            email: ['', [Validators.required, this.emailValidator.bind(this)]],
+            cooperationType: ['', Validators.required],
+            message: ['', Validators.required]
         });
+
+        this.inquiryForm = this.fb.group({
+            name: ['', Validators.required],
+            phone: ['', Validators.required],
+            email: ['', [Validators.required, this.emailValidator.bind(this)]],
+            inquiryType: ['', Validators.required],
+            message: ['', Validators.required]
+        });
+
         AOS.init({
             duration: 800,     // thời gian animation (ms)
             offset: 100,       // khoảng cách bắt đầu hiệu ứng
             once: true,        // chỉ chạy 1 lần khi scroll xuống
             easing: 'ease-in-out'
         });
+    }
+
+    emailValidator(control: FormControl): ValidationErrors | null {
+        return this.isEmailValid(control.value) ? null : { invalidEmail: true };
+    }
+
+    isEmailValid(email: string): boolean {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email)
+            ;
     }
 
     ngOnInit(): void {
@@ -153,12 +179,137 @@ export class HomeComponent {
 
     partnerForm: FormGroup;
     onSubmitPartnerForm() {
-        if (this.partnerForm.valid) {
-            console.log('Partner Form Data:', this.partnerForm.value);
-            alert('Your cooperation request has been sent! / ご連絡ありがとうございます。');
-            this.partnerForm.reset();
-        }
+
+        this.recaptchaV3Service.execute('sendContact')
+            .subscribe((token) => {
+                if (token != null && token != undefined && token.includes("Invalid site key")) {
+                    token = "Captcha error";
+                }
+
+                if (this.partnerForm.valid) {
+                    this.callRegistPartnerRequest(token).subscribe({
+                        next: (successful: any) => {
+                            if (successful == "1") {
+                                this.partnerForm.reset();
+                                this.snackBar.open("Send information successful", 'Close', {
+                                    duration: 3000,
+                                    verticalPosition: 'top',
+                                    horizontalPosition: 'right',
+                                });
+                                this.fafoService.triggerScrollToTop();
+                            } else {
+                                this.snackBar.open("Send information failed", 'Close', {
+                                    duration: 3000,
+                                    verticalPosition: 'top',
+                                    horizontalPosition: 'right',
+                                });
+                            }
+                        },
+                        error: (error: any) => {
+                            console.error('Đã xảy ra lỗi khi tải danh sách:', error);
+                        },
+                    });
+                }
+            });
     }
+
+    callRegistPartnerRequest(token: string) {
+        const request = {
+            accessInfo: this.accessInfo.getAll(),
+            companyName: this.partnerForm.get('companyName')?.value,
+            contactPerson: this.partnerForm.get('contactPerson')?.value,
+            message: this.partnerForm.get('message')?.value,
+            email: this.partnerForm.get('email')?.value,
+            cooperationType: this.partnerForm.get('cooperationType')?.value,
+            token: token
+        };
+
+        return this.webService.callWs('partnerRequest', request).pipe(
+            map((data: any) => {
+                if (data && data.successful) {
+                    return data.successful;
+                }
+            }),
+            catchError((error) => {
+                console.error('Lỗi xảy ra:', error);
+                return of([]); // Trả về một danh sách rỗng nếu có lỗi
+            })
+        );
+    }
+
+    inquiryForm: FormGroup;
+    onSubmitInquiryForm() {
+
+        this.recaptchaV3Service.execute('sendContact')
+            .subscribe((token) => {
+                if (token != null && token != undefined && token.includes("Invalid site key")) {
+                    token = "Captcha error";
+                }
+
+                if (this.inquiryForm.valid) {
+                    this.callRegistInquiryRequest(token).subscribe({
+                        next: (successful: any) => {
+                            if (successful == "1") {
+                                this.inquiryForm.reset();
+                                this.snackBar.open("Send information successful", 'Close', {
+                                    duration: 3000,
+                                    verticalPosition: 'top',
+                                    horizontalPosition: 'right',
+                                });
+                                this.fafoService.triggerScrollToTop();
+                            } else {
+                                this.snackBar.open("Send information failed", 'Close', {
+                                    duration: 3000,
+                                    verticalPosition: 'top',
+                                    horizontalPosition: 'right',
+                                });
+                            }
+                        },
+                        error: (error: any) => {
+                            console.error('Đã xảy ra lỗi khi tải danh sách:', error);
+                        },
+                    });
+                }
+            });
+    }
+
+    callRegistInquiryRequest(token: string) {
+        const request = {
+            accessInfo: this.accessInfo.getAll(),
+            name: this.inquiryForm.get('name')?.value,
+            phone: this.inquiryForm.get('phone')?.value,
+            message: this.inquiryForm.get('message')?.value,
+            email: this.inquiryForm.get('email')?.value,
+            inquiryType: this.inquiryForm.get('inquiryType')?.value,
+            token: token
+        };
+
+        return this.webService.callWs('sendInfoRequest', request).pipe(
+            map((data: any) => {
+                if (data && data.successful) {
+                    return data.successful;
+                }
+            }),
+            catchError((error) => {
+                console.error('Lỗi xảy ra:', error);
+                return of([]); // Trả về một danh sách rỗng nếu có lỗi
+            })
+        );
+    }
+
+    phoneNumberValidator(control: FormControl): ValidationErrors | null {
+        return this.isPhoneNumberValid(control.value) ? null : { invalidPhoneNumber: true };
+    }
+
+    isPhoneNumberValid(phoneNumber: string): boolean {
+        // Định dạng số điện thoại Nhật Bản
+        const jpPhoneRegex = /^(\+81|0)(\d{1,4})(\d{1,4})(\d{4})$/;
+        // Định dạng số điện thoại Việt Nam
+        const vnPhoneRegex = /^(\+84|0)(3|5|7|8|9)(\d{8})$/;
+
+        return jpPhoneRegex.test(phoneNumber) || vnPhoneRegex.test(phoneNumber);
+    }
+
     partnerLogos: string[] = [
         'https://cdn-icons-png.flaticon.com/512/5968/5968267.png', // Toyota
         'https://cdn-icons-png.flaticon.com/512/5969/5969053.png', // Honda

@@ -88,7 +88,7 @@ export const appConfig: ApplicationConfig = {
         }),
         provideStore(),
         provideState({ name: 'language', reducer: languageReducer }),
-        // { provide: RECAPTCHA_V3_SITE_KEY, useValue: '6LcP_o4qAAAAAMcU4BkKww9T6Bs4cvwqDdS8ejrL' },
+        { provide: RECAPTCHA_V3_SITE_KEY, useValue: '6LfS-fMrAAAAAN6-myMEgDq_Wk23DSzlH--P8e8o' },
         { provide: MatPaginatorIntl, useFactory: CustomPaginator }
     ]
 };
