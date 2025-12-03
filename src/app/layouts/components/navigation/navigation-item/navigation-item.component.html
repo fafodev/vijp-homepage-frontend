@@ -6,8 +6,9 @@
 </a>
 
 <div (click)="item.route()" *ngIf="isLink(item) && isFunction(item.route)"
-    [class.hover:bg-hover]="!(isActive$ | async)?.(item)" class="navigation-item navigation-color" matRipple>
-    {{ item.label }}
+    [class.hover:bg-hover]="!(isActive$ | async)?.(item)" class="navigation-item navigation-color">
+    <span class="nav-label-jp">{{ item.label }}</span>
+    <span class="nav-label-en" *ngIf="item.label2">{{ item.label2 }}</span>
 </div>
 
 <ng-container *ngIf="

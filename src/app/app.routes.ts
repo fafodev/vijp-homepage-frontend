@@ -21,7 +21,7 @@ export const appRoutes: VexRoutes = [
         component: LayoutComponent,
         children: [
             {
-                path: 'home',
+                path: '',
                 component: HomeComponent,
                 children: []
             },

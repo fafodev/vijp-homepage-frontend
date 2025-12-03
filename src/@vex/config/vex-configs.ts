@@ -177,13 +177,16 @@ export const vexConfigs: VexConfigs = {
             }
         },
         toolbar: {
-            fixed: false,
+            fixed: true,
             user: {
                 visible: false
             },
             search: {
                 visible: true
             }
+        },
+        navbar: {
+            position: 'in-toolbar'
         },
         footer: {
             fixed: false

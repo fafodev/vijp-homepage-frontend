@@ -1,0 +1,28 @@
+<div data-aos="fade-bottom" data-aos-delay="200" [class.container]="isVerticalLayout$ | async"
+    class="toolbar text-default w-full max-w-[1600px] px-6 flex items-center justify-between">
+    <!-- LEFT: LOGO + COMPANY NAME -->
+    <div class="flex items-center">
+        <button (click)="openSidenav()" [class.hidden]="isDesktop$ | async" mat-icon-button type="button" class="mr-2">
+            <mat-icon svgIcon="mat:menu"></mat-icon>
+        </button>
+
+        <a *ngIf="isVerticalLayout$ | async" [routerLink]="['/']" class="flex items-center text-[#C8102E]">
+            <img alt="Logo" class="h-12 md:h-18 lg:h-24 select-none object-contain" src="assets/img/logo/logo.png" />
+        </a>
+    </div>
+
+    <!-- RIGHT: MENU -->
+    <div *ngIf="(isVerticalLayout$ | async) && (isNavbarInToolbar$ | async)" [class.hidden]="!(isDesktop$ | async)"
+        class="flex-1 ml-8">
+
+        <div class="flex w-full h-full">
+            <ng-container *ngFor="let item of navigationItems$ | async; let i = index">
+                <!-- mỗi item = 1/5 chiều rộng -->
+                <div class="flex-1 text-center border-l border-gray-300 first:border-l-0 p-2">
+                    <vex-navigation-item [item]="item"></vex-navigation-item>
+                </div>
+            </ng-container>
+        </div>
+
+    </div>
+</div>

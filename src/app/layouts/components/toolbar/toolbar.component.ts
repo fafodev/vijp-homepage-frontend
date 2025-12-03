@@ -93,7 +93,8 @@ export class ToolbarComponent implements OnInit {
         private readonly router: Router,
         private readonly appFunctionService: AppFunctionService,
         private readonly accessInfo: AccessInfoService
-    ) { }
+    ) { 
+    }
 
     ngOnInit() {
         this.router.events
@@ -108,13 +109,6 @@ export class ToolbarComponent implements OnInit {
                     (data) => data.toolbarShadowEnabled ?? false
                 );
             });
-
-        // language
-        this.currentLanguage$ = this.store.select(selectCurrentLanguage);
-        this.currentLanguage$.subscribe(language => {
-            this.onLanguageMenuChange(language);
-            this.currentLanguage = language;
-        });
     }
 
     openQuickpanel(): void {

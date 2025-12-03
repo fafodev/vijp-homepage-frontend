@@ -8,6 +8,7 @@ export interface NavigationLink {
     route: string | any;
     fragment?: string;
     label: string;
+    label2?: string;
     icon?: string;
     routerLinkActiveOptions?: { exact: boolean };
     badge?: {

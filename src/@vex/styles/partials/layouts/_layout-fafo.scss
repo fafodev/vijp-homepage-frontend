@@ -1,8 +1,8 @@
 .vex-layout-fafo {
     --vex-toolbar-height: 100px;
     --vex-secondary-toolbar-background: var(--vex-background-background);
-    --vex-secondary-toolbar-height: 64px;
-
+    --vex-secondary-toolbar-height: 0px;
+    --vex-navigation-height: 0px;
     &.vex-style-light {
         --vex-toolbar-background: var(--vex-background-background);
     }
@@ -29,4 +29,6 @@
     vex-secondary-toolbar .secondary-toolbar {
         @apply shadow-none -mb-6 border-t-0 border-b-0;
     }
+
+    
 }

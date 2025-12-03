@@ -61,7 +61,7 @@ export class LayoutComponent {
         this.layoutService.isDesktop$.pipe(map((isDesktop) => !isDesktop));
     sidenavMode$: Observable<MatDrawerMode> = combineLatest([
         this.layoutService.isDesktop$,
-        this.configService.select((config) => config.layout)
+        this.configService.select((config: any) => config.layout)
     ]).pipe(
         map(([isDesktop, layout]) =>
             !isDesktop || layout === 'vertical' ? 'over' : 'side'
