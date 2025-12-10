@@ -11,11 +11,11 @@ export const service = 'webapi/vijp/';
  * ビルド過程で稼働環境用のサーバー名に置き換え
  */
 export function serverHost(): string {
-    return 'http://72.61.143.252';
+    return 'https://www.vijp.jp';
 }
 
 export const projectName = 'hsc';
-export const fullPath: string = isDevMode() ? 'http://72.61.143.252/' : 'http://72.61.143.252/';
+export const fullPath: string = isDevMode() ? 'https://www.vijp.jp/' : 'https://www.vijp.jp/';
 
 export const VI: string = 'VI';
 export const JP: string = 'JP';
